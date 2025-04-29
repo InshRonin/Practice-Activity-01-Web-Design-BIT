@@ -13,7 +13,7 @@ This repository contains a **visually appealing** and **interactive** web form f
 ## 🚀 How to Use  
 1️⃣ **Clone the repository:**  
    ```sh
-   git clone https://github.com/yourusername/repository-name.git  
+   git clone https://github.com/InshRonin/Practice-Activity-01-Web-Design-BIT.git 
    ```  
 2️⃣ Open `index.html` in a browser to interact with the form.  
 3️⃣ Follow the **window prompts** to enter applicant details.  
