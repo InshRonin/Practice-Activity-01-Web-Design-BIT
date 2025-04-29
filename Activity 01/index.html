@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(to right, #00c6ff, #0072ff);
+        }
+
+        .container {
+            width: 60%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            margin-top: 10px;
+            color: rgb(202, 30, 30);
+        }
+
+        label {
+            font-size: 20px;
+            padding: 06px 40px;
+            font-weight: 500;
+            color: rgb(29, 21, 21);
+        }
+
+        input {
+            color: rgb(0, 0, 0);
+            width: 90%;
+            height: 23px;
+            margin: 5px auto;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .check input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+        }
+
+
+        .submit {
+            width: 150px;
+            height: 40px;
+            border: none;
+            background-image: linear-gradient(to bottom, #0072ff, #e22424);
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            display: block;
+            margin: 5px auto;
+            transition: background-image 0.3s ease, color 0.3s ease;
+        }
+
+        .submit:hover {
+            background-image: linear-gradient(to bottom, #004599, #8c1212);
+            color: white;
+        }
+
+        .check {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+
+        .check label {
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: 450;
+        }
+
+        .btn {
+            display: flex;
+            padding: 0 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="container">
+            <h1>Application</h1>
+            <form action="#" method="get">
+                <label for="name">Name: </label>
+                <input type="text" id="name" placeholder="SpongeBob" disabled>
+                <label for="dob">Date of Birth: </label>
+                <input type="date" id="dob" placeholder="04-22-2003" disabled>
+                <label id="ageLabel" for="age">Age: </label>
+                <input type="number" id="age" placeholder="22" min="0" disabled>
+                <label for="mail">Email: </label>
+                <input type="email" id="mail" placeholder="dummymail@123.com" disabled>
+                <label>Gender: </label>
+                <div class="check">
+                    <input type="checkbox" id="gender1" name="male" value="male" disabled>
+                    <label for="gender1">Male</label>
+                    <input type="checkbox" id="gender2" name="female" value="female" disabled>
+                    <label for="gender2">Female</label>
+                </div>
+                <label for="contact">Contact: </label>
+                <input type="tel" id="contact" placeholder="123-456-7890" disabled>
+                <label for="address">Address: </label>
+                <input type="text" id="address" placeholder="1234 Main St" disabled>
+                <label for="edu">Higher Education Qualification: </label>
+                <input type="text" id="edu" placeholder="B.E. in Computer Science" disabled>
+                <label id="expLabel" for="exp">Experience: </label>
+                <input type="number" id="exp" placeholder="0" min="0" disabled>
+
+                <div class="btn">
+                    <button class="submit" onclick="detailsAdd()">Add Details</button>
+                    <button class="submit">Confirm and Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function detailsAdd() {
+
+            const name = document.getElementById('name');
+            const dob = document.getElementById('dob');
+            const age = document.getElementById('age');
+            const mail = document.getElementById('mail');
+            const male = document.getElementById('gender1');
+            const female = document.getElementById('gender2');
+            const contact = document.getElementById('contact');
+            const address = document.getElementById('address');
+            const edu = document.getElementById('edu');
+            const exp = document.getElementById('exp');
+            ageLabel = document.getElementById('ageLabel');
+            expLabel = document.getElementById('expLabel');
+
+            name.value = window.prompt("Enter your name: ", "spongebob");
+            if (name.value == "") {
+                name.value = "spongebob";
+            }
+            dob.value = window.prompt("Enter your Birthday: ", "04-22-2003");
+            if (dob.value == "") {
+                dob.value = "04-22-2003";
+            }
+            age.value = window.prompt("Enter your age: ", "22");
+            if (age.value < 20 || age.value > 40) {
+                ageLabel.textContent = "Age: (Not Eligible)";
+
+            }
+            else {
+                ageLabel.textContent = "Age: (Eligible)";
+            }
+
+            if (age.value == "") {
+                age.value = "22";
+
+            }
+            mail.value = window.prompt("Enter your mail: ", "dummymail@123.com");
+            if (mail.value == "") {
+                mail.value = "dummymail@123.com";
+            }
+
+            userinput = window.prompt("Select your gender (male/female): ").toLowerCase();
+            if (userinput === "male") {
+                male.checked = true;
+            } else if (userinput === "female") {
+                female.checked = true;
+            } else {
+                alert("Invalid input. Please enter 'male' or 'female'.");
+            }
+
+            contact.value = window.prompt("Enter your number: ", "123-456-7890");
+            if (contact.value == "") {
+                contact.value = "123-456-7890";
+            }
+            address.value = window.prompt("Enter your address: ", "1234 Main St");
+            if (address.value == "") {
+                address.value = "1234 Main St";
+            }
+            edu.value = window.prompt("Enter your Edu/Qualification: ", "B.E. in Computer Science");
+            if (edu.value == "") {
+                edu.value = "B.E. in Computer Science";
+            }
+            exp.value = window.prompt("Enter your work experience: ", "0");
+            if (exp.value !== "" && exp.value >= 4) {
+                expLabel.textContent = "Experience: (Eligible)";
+            } else {
+                expLabel.textContent = "Experience: (Not Eligible)";
+            }
+
+            if (exp.value == "") {
+                exp.value = "0";
+            }
+
+
+
+        }
+
+
+ 
+    </script>
+</body>
+
+</html>
